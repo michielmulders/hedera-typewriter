@@ -1,86 +1,44 @@
 [
   {
-    "name": "Michiel-ben",
-    "wpm": 228,
-    "mistakes": 2,
-    "cpm": 19
-  },
-  {
-    "name": "sls-",
-    "wpm": 204,
-    "mistakes": 6,
-    "cpm": 17
+    "name": "Test",
+    "wpm": 44,
+    "mistakes": 49,
+    "cpm": 62
   },
   {
     "name": "Michiel",
-    "wpm": 144,
-    "mistakes": 3,
-    "cpm": 12
+    "wpm": 39,
+    "mistakes": 71,
+    "cpm": 126
   },
   {
-    "name": "micheil",
-    "wpm": 105,
-    "mistakes": 12,
-    "cpm": 340
+    "name": "Michiel-2",
+    "wpm": 25,
+    "mistakes": 4,
+    "cpm": 83
   },
   {
-    "name": "Michiel",
-    "wpm": 99,
-    "mistakes": 8,
-    "cpm": 74
+    "name": "Jeos",
+    "wpm": 14,
+    "mistakes": 107,
+    "cpm": 6
   },
   {
-    "name": "MIchiel",
-    "wpm": 96,
-    "mistakes": 8,
-    "cpm": 8
-  },
-  {
-    "name": "Michiel",
-    "wpm": 77,
-    "mistakes": 69,
-    "cpm": 251
-  },
-  {
-    "name": "Michiel",
-    "wpm": 70,
-    "mistakes": 16,
-    "cpm": 123
-  },
-  {
-    "name": "Michiel",
-    "wpm": 54,
-    "mistakes": 24,
-    "cpm": 67
-  },
-  {
-    "name": "Michiel",
-    "wpm": 51,
-    "mistakes": 80,
-    "cpm": 166
-  },
-  {
-    "name": "Bram leppens",
-    "wpm": 36,
-    "mistakes": 16,
+    "name": "Michielaworn",
+    "wpm": 7,
+    "mistakes": 58,
     "cpm": 3
   },
   {
-    "name": "ns",
-    "wpm": 24,
-    "mistakes": 10,
-    "cpm": 2
+    "name": "Prull",
+    "wpm": 6,
+    "mistakes": 111,
+    "cpm": 21
   },
   {
-    "name": "MIchiel",
-    "wpm": 5,
-    "mistakes": 61,
-    "cpm": 4
-  },
-  {
-    "name": "mel",
-    "wpm": 0,
-    "mistakes": 13,
-    "cpm": 0
+    "name": "Jos leppens",
+    "wpm": 2,
+    "mistakes": 71,
+    "cpm": 8
   }
 ]

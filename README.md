@@ -10,7 +10,7 @@ Welcome to the **Speed Typing Game**, a web-based application designed to test a
 ## 🎮 How to Play
 
 1. Start typing the displayed paragraph in the input field as accurately and quickly as possible.
-2. Keep an eye on the timer, your typing speed (WPM), and your accuracy (CPM) as you type.
+2. Keep an eye on the timer, your typing speed (WPM), and the number of correct characters (Chars).
 3. Once the time is up or the paragraph is completed, your final speed, accuracy, and the number of mistakes will be displayed. You'll be prompted to enter your name to save your score.
 4. After entering your name, you can view your score and the leaderboard.
 5. The game will also display your rank based on your performance compared to other players. When you click the link on the rank, it will take you to the Hedera Hashscan page for the topic where your score is recorded.

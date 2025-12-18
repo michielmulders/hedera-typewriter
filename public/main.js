@@ -57,6 +57,23 @@ function isValidName(name) {
 }
 
 /**
+ * Always recompute WPM/CPM based on elapsed time (maxTime - timeLeft).
+ * This is called both on typing AND on every timer tick.
+ */
+function updateStats() {
+  const elapsedSeconds = maxTime - timeLeft;
+  // avoid division by 0; keep it at least 1s so WPM doesn't explode
+  const safeElapsedSeconds = Math.max(1, elapsedSeconds);
+
+  const correctChars = Math.max(0, charIndex - mistakes); // your CPM logic
+  const wpm = Math.max(0, Math.round(((correctChars / 5) / safeElapsedSeconds) * 60));
+
+  wpmTag.innerText = wpm;
+  mistakeTag.innerText = mistakes;
+  cpmTag.innerText = correctChars;
+}
+
+/**
  * Fetch existing scores and calculate provisional rank for current stats.
  */
 async function calculateLocalRank(wpm, mistakesCount, cpmCount) {
@@ -88,7 +105,13 @@ function loadParagraph() {
     span.innerText = char;
     typingText.appendChild(span);
   });
-  typingText.querySelector('span').classList.add('active');
+
+  // Set cursor to start
+  const first = typingText.querySelector('span');
+  if (first) first.classList.add('active');
+
+  // OLD: typingText.querySelector('span').classList.add('active');
+  // Reset timer + stats
   clearInterval(timer);
   timeLeft = maxTime;
   timeTag.innerText = timeLeft;
@@ -96,6 +119,23 @@ function loadParagraph() {
   wpmTag.innerText = 0;
   mistakeTag.innerText = 0;
   cpmTag.innerText = 0;
+
+  // ✅ IMPORTANT: reset scroll position so the active cursor is visible at the start
+  const contentBox = document.querySelector('.content-box');
+  const typingBox = document.querySelector('.typing-text');
+
+  // Using requestAnimationFrame ensures DOM layout is updated before scrolling
+  requestAnimationFrame(() => {
+    if (contentBox) contentBox.scrollTop = 0;
+    if (typingBox) typingBox.scrollTop = 0;
+
+    // also ensure the first char is brought into view without centering mid-text
+    first?.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'nearest' });
+  });
+
+  // Keep focus ready
+  inpField.value = '';
+  inpField.focus();
 }
 
 function initTyping(e) {
@@ -133,10 +173,7 @@ function initTyping(e) {
       characters[charIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 
-    const wpm = Math.max(0, Math.round(((charIndex - mistakes) / 5 / (maxTime - timeLeft)) * 60));
-    wpmTag.innerText = wpm;
-    mistakeTag.innerText = mistakes;
-    cpmTag.innerText = charIndex - mistakes;
+    updateStats();
 
     if (charIndex >= characters.length) {
       clearInterval(timer);
@@ -152,6 +189,8 @@ function initTimer() {
   if (timeLeft > 0) {
     timeLeft--;
     timeTag.innerText = timeLeft;
+
+    if (isTyping) updateStats();
   } else {
     clearInterval(timer);
     showModal();
@@ -194,6 +233,14 @@ function handleModalEnter(e) {
   }
 }
 
+document.getElementById('leaderboard')?.addEventListener('click', () => {
+  window.location.href = '/game/leaderboard.html';
+});
+
+document.getElementById('leaderboard')?.addEventListener('click', () => {
+  window.location.href = '/game/leaderboard.html';
+});
+
 // Handle score submission via the standalone button
 submitNameBtn.addEventListener('click', async () => {
   let name = playerNameInput.value.trim();
@@ -215,7 +262,7 @@ submitNameBtn.addEventListener('click', async () => {
     charIndex - mistakes
   );
 
-  rankHeader.innerHTML = `You’re Rank <a href="https://hashscan.io/testnet/topic/0.0.6296170" target="_blank">#${finalRank}</a>`;
+  rankHeader.innerHTML = `You’re Rank <a href="https://hashscan.io/testnet/topic/0.0.7485497" target="_blank">#${finalRank}</a>`;
   playerNameInput.disabled = true;
   submitNameBtn.style.display = 'none';
 

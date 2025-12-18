@@ -155,9 +155,9 @@ const scoreSchema = Joi.object({
     .max(50)
     .pattern(/^[a-zA-Z0-9 _-]+$/)
     .required(),
-  wpm: Joi.number().integer().min(0).max(1000).required(),
+  wpm: Joi.number().integer().min(0).max(205).required(),
   mistakes: Joi.number().integer().min(0).max(1000).required(),
-  cpm: Joi.number().integer().min(0).max(2000).required(),
+  cpm: Joi.number().integer().min(0).max(1000).required(),
 });
 
 // --- POST a new score ---
