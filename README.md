@@ -17,7 +17,7 @@ Welcome to the **Speed Typing Game**, a web-based application designed to test a
 
 ### Setup
 
-1. **Topic ID:** Before we can run the game, make sure to create a new topic ID on the Hedera testnet. Copy the Topic ID and paste it in the `.env` file in the next step. (Use the portal with the correct account type!)
+1. **Topic ID:** Before we can run the game, make sure to create a new topic ID on the Hedera testnet. Copy the Topic ID and paste it in the `.env` file in the next step. **It's recommended to create a new topic ID with admin key set to the operator account for the game, to prevent any malicious users from spamming the topic with fake scores.** 
 
 **Don't forget to update the topic ID in the hashscan link in the `public/index.html` file as well on line 95.**
 
@@ -51,7 +51,7 @@ node server.js
 
 Upon starting the server, it will sync with the Hedera topic and fetch all messages to repopulate the leaderboard. So it's safe to turn off and on the server as needed.
 
-5. **Open the Game:** Open your web browser and navigate to `http://localhost:3000/game/index.html` to start playing the Speed Typing Game. The leaaderboard can be accessed at `http://localhost:3000/game/leaderboard.html`.
+5. **Open the Game:** Open your web browser and navigate to `http://localhost:3000/game/index.html` to start playing the Speed Typing Game. The leaaderboard can be accessed at `http://localhost:3000/game/leaderboard.html`. **You can open both pages at the same time to see your score update in real-time on the leaderboard after you finish a game.**
 
 **How to use at conference booths?** At conferences, you can run the game in one tab (`game/index.html`) and the leaderboard in another tab (`game/leaderboard.html`). This allows you to have a booth where people can play the game and see their scores in real-time. The leaderboard will automatically update every 2.5 seconds.
 
